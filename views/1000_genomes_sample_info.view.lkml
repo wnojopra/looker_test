@@ -385,6 +385,15 @@ view: genomes_sample_info {
   dimension: total_exome_sequence {
     type: number
     sql: ${TABLE}.Total_Exome_Sequence ;;
+    value_format: "0,,,\"B\""
+  }
+
+  dimension: exome_sequence_tier {
+    type: tier
+    sql: ${total_exome_sequence} ;;
+    tiers: [9000000000,19000000000,29000000000,39000000000,49000000000,59000000000,69000000000,79000000000,89000000000,99000000000,109000000000,119000000000]
+    style: integer
+    value_format: "0,,,\" B\""
   }
 
   dimension: total_lc_sequence {
